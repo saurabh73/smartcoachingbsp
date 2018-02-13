@@ -1,0 +1,43 @@
+
+
+div.main-container {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+}
+div.intro {
+    background-image: url("http://res.cloudinary.com/dren4jgbp/image/upload/v1518117934/Female-Student-1_s5relu.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right top;
+    width: 100%;
+    min-height: 600px;
+    position: absolute;
+    top:0;
+    filter: blur(2px);
+    z-index: -1;
+}
+
+
+
+.heading {
+    font-family: 'Oxygen', sans-serif;
+    text-transform: uppercase;
+    color:#eeeeee;
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.intro-text{
+    border-left: 5px solid #8448ff;
+    color: white;
+    background: rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+}
+
+
+@media (max-width: 576px) { 
+    div.intro {
+        background-position: 90% top;
+    }
+}
