@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ServicesComponent } from './components/services/services.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { NotificationComponent } from './components/notification/notification.component';
+import { FormContainerComponent } from './components/form-container/form-container.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { NotificationComponent } from './components/notification/notification.co
     HomeComponent,
     ServicesComponent,
     TestimonialsComponent,
-    NotificationComponent
+    NotificationComponent,
+    FormContainerComponent
   ],
   imports: [
     BrowserModule,

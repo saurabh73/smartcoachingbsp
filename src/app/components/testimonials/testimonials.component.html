@@ -1,29 +1,21 @@
   <div class="container">
-    <h3 class="testimonials-header">Student Testimonials</h3>
+    <div class="title-header">
+      <span class="text-primary h4">Student Testimonials</span><br/>
+      <div class="mx-auto my-1 bg-primary underline-style"></div>
+    <div>
     <ngb-carousel>
-      <ng-template ngbSlide>
-        <div class="jumbotron jumbotron-fluid" style="background-color: white">
-          <div class="container text-center">
-            <h1 class="display-5">Fluid jumbotron</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-          </div>
-        </div>
-      </ng-template>
-      <ng-template ngbSlide>
-        <div class="jumbotron jumbotron-fluid" style="background-color: white">
-          <div class="container text-center">
-            <h1 class="display-5">Fluid jumbotron 2</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-          </div>
-        </div>
-      </ng-template>
-      <ng-template ngbSlide>
-        <div class="jumbotron jumbotron-fluid" style="background-color: white">
-          <div class="container text-center">
-            <h1 class="display-5">Fluid jumbotron 3</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-          </div>
-        </div>
-      </ng-template>
+      <div *ngFor="let testimony of testimonials">
+          <ng-template ngbSlide>
+              <div class="jumbotron jumbotron-fluid bg-light">
+                <div class="container text-center w-75">
+                  <p class="text-big">{{testimony.content}}</p>
+                  <p class="text-right">
+                      <strong class="text-primary">{{testimony.name}}</strong><br/>
+                      <span class="text-muted font-weight-light">{{testimony.course}}</span>
+                  </p>
+                </div>
+              </div>
+            </ng-template>
+      </div>
     </ngb-carousel>
   </div>

@@ -1,4 +1,4 @@
-
+@import "../../../styles";
 
 div.main-container {
     position: relative;
@@ -19,20 +19,17 @@ div.intro {
 }
 
 
-
 .heading {
     font-family: 'Oxygen', sans-serif;
     text-transform: uppercase;
-    color:#eeeeee;
     font-size: 3rem;
     font-weight: 900;
 }
 
 .intro-text{
-    border-left: 5px solid #8448ff;
-    color: white;
+    border-left: 3px solid theme-color("primary");
     background: rgba(0, 0, 0, 0.2);
-    max-width: 600px;
+    max-width: 575px;
 }
 
 
@@ -40,4 +37,18 @@ div.intro {
     div.intro {
         background-position: 90% top;
     }
+}
+
+.demo-slot-container{
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+}
+
+.demo-btn {
+   width: 400px;
+}
+
+.demo-btn:hover {
+    color: theme-color("primary");
 }

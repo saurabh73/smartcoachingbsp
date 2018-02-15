@@ -1,15 +1,14 @@
+@import "../../../styles";
 .notification-bar{
     background: rgba(0, 0, 0, 0.4);
     height: 50px;
     margin-top: -50px !important;
-    color:white;
-
+    color: theme-color("light");;
 
     span.notify {
-        font-size: 16px;
         padding: 5px 20px;
-        border-right: 2px solid  #8448ff;
-
+        border-right: 2px solid theme-color("primary");
+        cursor: pointer;
     }
 }
 

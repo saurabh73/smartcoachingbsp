@@ -1,7 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Oxygen');
 $theme-colors: (
-    "dark": #020202
+    "dark": #020202,
+    "primary": #8448ff,
+    "light": #fdfdfd
 );
 
 @import "node_modules/bootstrap/scss/bootstrap";
+
+@import "node_modules/bootstrap/scss/functions";
+
+
+@mixin prefix($property, $value) {
+    #{'-moz-' + $property}: $value;
+    #{'-ms-' + $property}: $value;
+    #{'-webkit-' + $property}: $value;
+    // Output standard non-prefixed declaration
+    #{$property}: $value;
+}
+
+.underline-style {
+    width: 50px; 
+    height: 3px;
+}
+
+.title-header {
+    text-align: center;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 100 !important;
+}
+
+.text-big {
+    font-size: 1.2rem;
+}

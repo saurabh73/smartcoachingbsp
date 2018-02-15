@@ -1,12 +1,7 @@
 <nav class="navbar nabvar-dark notification-bar">
   <div class="container-fluid">
-      <marquee>
-        <span class="notify">Lorem ipsum dolor Lorem ipsum dolor dolor Lorem ipsum dolor!</span>
-        <span class="notify">Lorem ipsum dolor Lorem ipsum dolor dolor Lorem ipsum dolor!</span>
-        <span class="notify">Lorem ipsum dolor Lorem ipsum dolor dolor Lorem ipsum dolor!</span>
-        <span class="notify">Lorem ipsum dolor Lorem ipsum dolor dolor Lorem ipsum dolor!</span>
-        <span class="notify">Lorem ipsum dolor Lorem ipsum dolor dolor Lorem ipsum dolor!</span>
-        <span class="notify">Lorem ipsum dolor Lorem ipsum dolor dolor Lorem ipsum dolor!</span>
+      <marquee onmouseover="this.stop();" onmouseout="this.start();">
+        <span class="notify text-big text-light" *ngFor="let notice of notices" [innerHTML]="notice"></span>
       </marquee>
   </div>
 </nav>
