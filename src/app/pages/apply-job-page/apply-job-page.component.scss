@@ -1,0 +1,15 @@
+@import "../../../styles";
+
+@include media-breakpoint-down(sm) {
+  .display-4 {
+    font-size: 2.4rem;
+  }
+}
+
+.business-header {
+  height: 200px;
+}
+
+.main-content {
+  background-color: #eeeeee;
+}

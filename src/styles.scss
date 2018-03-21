@@ -3,11 +3,11 @@
 $theme-colors: (
     "dark": #020202,
     "primary": #8448ff,
+    "secondary":#6039bf,
     "light": #fdfdfd
 );
 
 @import "node_modules/bootstrap/scss/bootstrap";
-
 @import "node_modules/bootstrap/scss/functions";
 
 
@@ -20,8 +20,12 @@ $theme-colors: (
 }
 
 .underline-style {
-    width: 50px; 
+    width: 50px;
     height: 3px;
+}
+
+.text-small {
+  font-size: 12px;
 }
 
 .title-header {
@@ -33,3 +37,28 @@ $theme-colors: (
 .text-big {
     font-size: 1.2rem;
 }
+
+
+.custom-file-control {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 5;
+  height: 2.5rem;
+  line-height: 1.5;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+
+  div.file-input {
+    padding: 0.5rem 1rem;
+    color: #495057;
+  }
+}
+

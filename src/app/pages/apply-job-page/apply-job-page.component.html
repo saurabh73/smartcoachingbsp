@@ -1,0 +1,212 @@
+<smart-header></smart-header>
+<header class="business-header bg-primary">
+  <div class="container h-100" >
+    <div class="col-lg-12 d-flex justify-content-center align-items-center h-100">
+      <div class="display-4 text-white align-middle d-flex text-center">
+        Love Teaching? Apply Now
+      </div>
+    </div>
+  </div>
+</header>
+<section class="main-content">
+  <div class="container bg-white py-3">
+    <div class="content-tile">
+      <h3 class="text-primary font-weight-light">Please fill your details</h3>
+    </div>
+    <form [formGroup]="jobForm" novalidate class="row" >
+      <div class="form-group col-12">
+        <label for="nameInputField">Name</label>
+        <input type="text" class="form-control" id="nameInputField" name="nameInputField" placeholder="Enter your name" formControlName="nameInputField">
+        <small  class="form-text text-success">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group col-xs-12 col-md-6">
+        <label for="emailInputField">Email Address</label>
+        <input type="email" class="form-control" id="emailInputField" name="emailInputField" placeholder="Enter your email" formControlName="emailInputField">
+        <small class="form-text text-success">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group col-xs-12 col-md-6">
+        <label for="mobileInputField">Mobile Number</label>
+        <input type="email" class="form-control" id="mobileInputField" name="mobileInputField" placeholder="Enter your mobile number" formControlName="mobileInputField">
+        <small class="form-text text-success">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group col-xs-12 col-md-6">
+        <label for="roleInputField">Role</label>
+        <select class="form-control" id="roleInputField" name="roleInputField" formControlName="roleInputField">
+          <option selected disabled>Select Role</option>
+          <option value="support-staff">Support Staff</option>
+          <option value="teacher">Teacher</option>
+        </select>
+      </div>
+
+      <div class="form-group col-xs-12 col-md-6">
+        <label for="experienceInputField">Experience</label>
+        <select class="form-control" id="experienceInputField" name="experienceInputField" formcontrolname="experienceInputField">
+          <option selected disabled>Select Experience</option>
+          <option>0 (fresher)</option>
+          <option>1 year</option>
+          <option>2 years</option>
+          <option>3 years</option>
+          <option>4 years</option>
+          <option>5 years</option>
+          <option>6 years</option>
+          <option>7 years</option>
+          <option>8 years</option>
+          <option>9 years</option>
+          <option>10+ years</option>
+        </select>
+      </div>
+
+      <div class="form-group col-xs-12 col-md-4">
+        <label>Board Preference </label>
+        <div class="form-group">
+          <div class="form-check form-check-inline my-1">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="boardCheckbox" value="cbse-board"> CBSE Board
+            </label>
+          </div>
+          <div class="form-check form-check-inline my-1">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="boardCheckbox" value="cg-board"> CG Board
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-xs-12 col-md-4">
+        <label>Teaching Medium</label>
+        <div class="form-group">
+          <div class="form-check form-check-inline my-1">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="mediumCheckbox" value="morning-slot"> Morning Slot
+            </label>
+          </div>
+          <div class="form-check form-check-inline my-1">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="mediumCheckbox" value="evening-slot"> Evening Slot
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-xs-12 col-md-4">
+        <label>Preferred Time slot</label>
+        <div class="form-group">
+          <div class="form-check form-check-inline my-1">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="timeSlotCheckbox" value="morning-slot"> Morning Slot
+            </label>
+          </div>
+          <div class="form-check form-check-inline my-1">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="timeSlotCheckbox" value="evening-slot"> Evening Slot
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-12">
+        <label>Class taught</label>
+        <div class="form-group row">
+          <div class="col-6">
+            <label for="classTaughtFromField" class="text-muted text-small">From</label>
+            <select class="form-control" id="classTaughtFromField">
+              <option selected disabled>Select Class</option>
+              <option>Class 6</option>
+              <option>Class 7</option>
+              <option>Class 8</option>
+              <option>Class 9</option>
+              <option>Class 10</option>
+              <option>Class 11</option>
+              <option>Class 12</option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label for="classTaughtToField" class="text-muted text-small">To</label>
+            <select class="form-control" id="classTaughtToField">
+              <option selected disabled>Select Class</option>
+              <option>Class 6</option>
+              <option>Class 7</option>
+              <option>Class 8</option>
+              <option>Class 9</option>
+              <option>Class 10</option>
+              <option>Class 11</option>
+              <option>Class 12</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="form-group col-12">
+        <label >Subject</label>
+        <div class="form-group">
+          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="morning-slot"> All Subjects
+            </label>
+          </div>
+          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="evening-slot"> English
+            </label>
+          </div>
+          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="morning-slot"> Hindi
+            </label>
+          </div>
+          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="evening-slot"> Physics
+            </label>
+          </div>
+          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="morning-slot"> Chemistry
+            </label>
+          </div>
+          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="evening-slot"> Biology
+            </label>
+          </div>
+          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="morning-slot"> Science
+            </label>
+          </div>
+          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="evening-slot"> Mathematics
+            </label>
+          </div>
+          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="evening-slot"> Accounting
+            </label>
+          </div>
+          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="evening-slot"> Other
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-12">
+        <label for="resumeInputField">Upload Resume</label>
+        <div class="custom-file">
+          <input type="file" id="resumeInputField" class="custom-file-input">
+          <div class="custom-file-control">
+            <button class="btn btn-outline-primary float-left">Browse</button>
+            <div class="file-input d-inline-block">test</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-12 text-center">
+        <button type="submit" class="btn btn-lg btn-primary col-xs-12 col-md-6">Apply</button>
+      </div>
+
+    </form>
+  </div>
+</section>
