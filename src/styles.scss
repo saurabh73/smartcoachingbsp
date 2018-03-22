@@ -53,12 +53,15 @@ $theme-colors: (
   -ms-user-select: none;
   user-select: none;
   background-color: #fff;
-  border: 1px solid rgba(0,0,0,.15);
+  border: 1px solid;
   border-radius: .25rem;
-
   div.file-input {
     padding: 0.5rem 1rem;
     color: #495057;
   }
+}
+
+.border-muted {
+  border-color:  rgba(0,0,0,.15);
 }
 

@@ -13,198 +13,165 @@
     <div class="content-tile">
       <h3 class="text-primary font-weight-light">Please fill your details</h3>
     </div>
-    <form [formGroup]="jobForm" novalidate class="row" >
+    <form [formGroup]="jobForm" class="row" novalidate (ngSubmit)="saveForm(jobForm.value)">
+      <!-- Name Field -->
       <div class="form-group col-12">
         <label for="nameInputField">Name</label>
-        <input type="text" class="form-control" id="nameInputField" name="nameInputField" placeholder="Enter your name" formControlName="nameInputField">
-        <small  class="form-text text-success">We'll never share your email with anyone else.</small>
+        <input type="text" class="form-control" [class.is-valid]="jobForm.controls['nameInputField'].valid"
+               [class.is-invalid]="jobForm.controls['nameInputField'].touched && !jobForm.controls['nameInputField'].valid"
+               id="nameInputField" name="nameInputField" placeholder="Enter your name" formControlName="nameInputField">
+        <small *ngIf="jobForm.controls['nameInputField'].touched && !jobForm.controls['nameInputField'].valid" class="form-text text-danger text-right">name is required.</small>
       </div>
+
+      <!-- Email Field -->
       <div class="form-group col-xs-12 col-md-6">
         <label for="emailInputField">Email Address</label>
-        <input type="email" class="form-control" id="emailInputField" name="emailInputField" placeholder="Enter your email" formControlName="emailInputField">
-        <small class="form-text text-success">We'll never share your email with anyone else.</small>
+        <input type="email" class="form-control" [class.is-valid]="jobForm.controls['emailInputField'].valid"
+               [class.is-invalid]="jobForm.controls['emailInputField'].touched && !jobForm.controls['emailInputField'].valid"
+               id="emailInputField" name="emailInputField" placeholder="Enter your email" formControlName="emailInputField">
+        <small *ngIf="jobForm.controls['emailInputField'].touched && jobForm.controls['emailInputField'].hasError('required')" class="form-text text-danger text-right">email is required.</small>
+        <small *ngIf="jobForm.controls['emailInputField'].touched && jobForm.controls['emailInputField'].hasError('email')" class="form-text text-danger text-right">please enter a valid email</small>
       </div>
+
+      <!-- Mobile Field -->
       <div class="form-group col-xs-12 col-md-6">
         <label for="mobileInputField">Mobile Number</label>
-        <input type="email" class="form-control" id="mobileInputField" name="mobileInputField" placeholder="Enter your mobile number" formControlName="mobileInputField">
-        <small class="form-text text-success">We'll never share your email with anyone else.</small>
+        <input type="email" class="form-control" [class.is-valid]="jobForm.controls['mobileInputField'].valid"
+               [class.is-invalid]="jobForm.controls['mobileInputField'].touched && !jobForm.controls['mobileInputField'].valid"
+               id="mobileInputField" name="mobileInputField" placeholder="Enter your mobile number" formControlName="mobileInputField">
+        <small *ngIf="jobForm.controls['mobileInputField'].touched && jobForm.controls['mobileInputField'].hasError('required')" class="form-text text-danger text-right">mobile number is required.</small>
+        <small *ngIf="jobForm.controls['mobileInputField'].touched && jobForm.controls['mobileInputField'].hasError('pattern')" class="form-text text-danger text-right">please enter a valid mobile number</small>
       </div>
+
+      <!-- Role Field -->
       <div class="form-group col-xs-12 col-md-6">
         <label for="roleInputField">Role</label>
         <select class="form-control" id="roleInputField" name="roleInputField" formControlName="roleInputField">
-          <option selected disabled>Select Role</option>
-          <option value="support-staff">Support Staff</option>
-          <option value="teacher">Teacher</option>
+          <option selected disabled value="select_role">Select Role</option>
+          <option *ngFor="let opt of roleFields" [value]="opt.value" >{{ opt.option }}</option>
         </select>
       </div>
 
+      <!-- Experience Field -->
       <div class="form-group col-xs-12 col-md-6">
         <label for="experienceInputField">Experience</label>
-        <select class="form-control" id="experienceInputField" name="experienceInputField" formcontrolname="experienceInputField">
-          <option selected disabled>Select Experience</option>
-          <option>0 (fresher)</option>
-          <option>1 year</option>
-          <option>2 years</option>
-          <option>3 years</option>
-          <option>4 years</option>
-          <option>5 years</option>
-          <option>6 years</option>
-          <option>7 years</option>
-          <option>8 years</option>
-          <option>9 years</option>
-          <option>10+ years</option>
+        <select class="form-control" id="experienceInputField" name="experienceInputField" formControlName="experienceInputField">
+          <option selected disabled value="select_exp">Select Experience</option>
+          <option *ngFor="let opt of expFields" [value]="opt.value" >{{ opt.option }}</option>
         </select>
       </div>
 
-      <div class="form-group col-xs-12 col-md-4">
-        <label>Board Preference </label>
-        <div class="form-group">
-          <div class="form-check form-check-inline my-1">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="boardCheckbox" value="cbse-board"> CBSE Board
-            </label>
-          </div>
-          <div class="form-check form-check-inline my-1">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="boardCheckbox" value="cg-board"> CG Board
-            </label>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group col-xs-12 col-md-4">
-        <label>Teaching Medium</label>
-        <div class="form-group">
-          <div class="form-check form-check-inline my-1">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="mediumCheckbox" value="morning-slot"> Morning Slot
-            </label>
-          </div>
-          <div class="form-check form-check-inline my-1">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="mediumCheckbox" value="evening-slot"> Evening Slot
-            </label>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group col-xs-12 col-md-4">
+      <!-- Preferred Time Slot -->
+      <div class="form-group col-12" *ngIf="!isTeacherRole">
         <label>Preferred Time slot</label>
         <div class="form-group">
-          <div class="form-check form-check-inline my-1">
+          <div class="form-check form-check-inline my-1"  *ngFor="let control of jobForm.controls['timeSlotCheckboxField'].controls; index as i">
             <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="timeSlotCheckbox" value="morning-slot"> Morning Slot
-            </label>
-          </div>
-          <div class="form-check form-check-inline my-1">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="timeSlotCheckbox" value="evening-slot"> Evening Slot
+              <input class="form-check-input" type="checkbox" name="timeSlotCheckbox"
+                     [value]="timeSlotFields[i].value" [formControl]="control"> {{ timeSlotFields[i].option }}
             </label>
           </div>
         </div>
       </div>
 
-      <div class="form-group col-12">
+      <!-- Board Field -->
+      <div class="form-group col-xs-12 col-md-4" *ngIf="isTeacherRole">
+        <label>Board Preference </label>
+        <div class="form-group" >
+          <div class="form-check form-check-inline my-1" *ngFor="let control of jobForm.controls['boardCheckboxField'].controls; index as i">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="boardCheckbox"
+                     [value]="boardFields[i].value" [formControl]="control"> {{ boardFields[i].option }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teaching Medium Field -->
+      <div class="form-group col-xs-12 col-md-4" *ngIf="isTeacherRole">
+        <label>Teaching Medium</label>
+        <div class="form-group">
+          <div class="form-check form-check-inline my-1" *ngFor="let control of jobForm.controls['mediumCheckboxField'].controls; index as i">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="mediumCheckbox"
+                     [value]="mediumFields[i].value" [formControl]="control"> {{ mediumFields[i].option }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preferred Time Slot -->
+      <div class="form-group col-xs-12 col-md-4" *ngIf="isTeacherRole">
+        <label>Preferred Time slot</label>
+        <div class="form-group">
+          <div class="form-check form-check-inline my-1"  *ngFor="let control of jobForm.controls['timeSlotCheckboxField'].controls; index as i">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="timeSlotCheckbox"
+                     [value]="timeSlotFields[i].value" [formControl]="control"> {{ timeSlotFields[i].option }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preferred Class Taught -->
+      <div class="form-group col-12" *ngIf="isTeacherRole">
         <label>Class taught</label>
-        <div class="form-group row">
+        <div class="form-group row" >
           <div class="col-6">
             <label for="classTaughtFromField" class="text-muted text-small">From</label>
-            <select class="form-control" id="classTaughtFromField">
-              <option selected disabled>Select Class</option>
-              <option>Class 6</option>
-              <option>Class 7</option>
-              <option>Class 8</option>
-              <option>Class 9</option>
-              <option>Class 10</option>
-              <option>Class 11</option>
-              <option>Class 12</option>
+            <select class="form-control" id="classTaughtFromField" formControlName="classFieldFrom">
+              <option selected disabled value="select_class">Select Class</option>
+              <option *ngFor="let opt of classFields" [value]="opt.value" >{{ opt.option }}</option>
             </select>
           </div>
           <div class="col-6">
             <label for="classTaughtToField" class="text-muted text-small">To</label>
-            <select class="form-control" id="classTaughtToField">
-              <option selected disabled>Select Class</option>
-              <option>Class 6</option>
-              <option>Class 7</option>
-              <option>Class 8</option>
-              <option>Class 9</option>
-              <option>Class 10</option>
-              <option>Class 11</option>
-              <option>Class 12</option>
+            <select class="form-control" id="classTaughtToField" formControlName="classFieldTo">
+              <option selected disabled value="select_class">Select Class</option>
+              <option *ngFor="let opt of classFields" [value]="opt.value" >{{ opt.option }}</option>
             </select>
           </div>
 
         </div>
       </div>
 
-      <div class="form-group col-12">
+      <!-- Subject Field -->
+      <div class="form-group col-12" *ngIf="isTeacherRole">
         <label >Subject</label>
         <div class="form-group">
-          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
+          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0" *ngFor="let control of jobForm.controls['subjectCheckBoxField'].controls; index as i">
             <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="morning-slot"> All Subjects
-            </label>
-          </div>
-          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="evening-slot"> English
-            </label>
-          </div>
-          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="morning-slot"> Hindi
-            </label>
-          </div>
-          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="evening-slot"> Physics
-            </label>
-          </div>
-          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="morning-slot"> Chemistry
-            </label>
-          </div>
-          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="evening-slot"> Biology
-            </label>
-          </div>
-          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="morning-slot"> Science
-            </label>
-          </div>
-          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="evening-slot"> Mathematics
-            </label>
-          </div>
-          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="evening-slot"> Accounting
-            </label>
-          </div>
-          <div class="form-check form-check-inline my-1 col-md-2 col-xs-4 m-0 p-0">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="subjectCheckBox" value="evening-slot"> Other
+              <input class="form-check-input" type="checkbox" name="subjectCheckBox"
+                     [value]="subjectFields[i].value" [formControl]="control"> {{ subjectFields[i].option }}
             </label>
           </div>
         </div>
       </div>
 
+      <!-- Resume Field -->
       <div class="form-group col-12">
         <label for="resumeInputField">Upload Resume</label>
         <div class="custom-file">
-          <input type="file" id="resumeInputField" class="custom-file-input">
-          <div class="custom-file-control">
-            <button class="btn btn-outline-primary float-left">Browse</button>
-            <div class="file-input d-inline-block">test</div>
+          <input type="file" id="resumeInputField" class="custom-file-input" ng2FileSelect [uploader]="uploader"  formControlName="resumeFileField">
+          <div class="custom-file-control border-muted" [class.border-success]="jobForm.controls['resumeFileField'].valid"
+               [class.border-danger]="jobForm.controls['resumeFileField'].touched && !jobForm.controls['resumeFileField'].valid">
+            <button class="btn btn-light border-muted float-left">Browse</button>
+            <div class="file-input d-inline-block">{{ resumeFileName }}</div>
+          </div>
+        </div>
+        <small *ngIf="jobForm.controls['resumeFileField'].touched && !jobForm.controls['resumeFileField'].valid" class="form-text text-danger text-right">resume is required.</small>
+        <div class="progress my-3" style="height: 4px;" *ngIf="coverImageLoader.inProgress">
+          <div class="progress-bar progress-bar-striped" role="progressbar" [style.width]="coverImageLoader.progressValue | percent:'1.0-1'" style="height: 4px;"
+               [attr.aria-valuenow]="coverImageLoader.progressValue" aria-valuemin="0" aria-valuemax="100">
           </div>
         </div>
       </div>
+
+      <!--Honey pot-->
+      <input name='message' type='text' formcontrolname="honeypot" [style.display]="'none'" />
+      <!-- Submit Button -->
       <div class="form-group col-12 text-center">
-        <button type="submit" class="btn btn-lg btn-primary col-xs-12 col-md-6">Apply</button>
+        <button type="submit" class="btn btn-lg btn-primary col-xs-12 col-md-6"  [disabled]="!jobForm.valid">Apply</button>
       </div>
 
     </form>
