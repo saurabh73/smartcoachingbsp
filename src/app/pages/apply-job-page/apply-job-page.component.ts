@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Cloudinary } from '@cloudinary/angular-5.x';
-import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Cloudinary} from '@cloudinary/angular-5.x';
+import {FileUploader, FileUploaderOptions, ParsedResponseHeaders} from 'ng2-file-upload';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
@@ -32,25 +32,25 @@ export class ApplyJobPageComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private cloudinary: Cloudinary, private http: HttpClient) {
     this.isTeacherRole = false;
-    this.roleFields = [{ value: 'support_staff', option: 'Support Staff'}, { value: 'teacher', option: 'Teacher'}];
-    this.expFields = [{ value: '0', option: '0 (fresher)'}, { value: '1', option: '1 year'},
-      { value: '2', option: '2 years'}, { value: '3', option: '3 years'}, { value: '4', option: '5 years'},
-      { value: '5', option: '5 years'}, { value: '6', option: '6 years'}, { value: '7', option: '7 years'},
-      { value: '8', option: '8 years'}, { value: '9', option: '9 years'}, { value: '10+', option: '10+ years' }];
+    this.roleFields = [{value: 'support_staff', option: 'Support Staff'}, {value: 'teacher', option: 'Teacher'}];
+    this.expFields = [{value: '0', option: '0 (fresher)'}, {value: '1', option: '1 year'},
+      {value: '2', option: '2 years'}, {value: '3', option: '3 years'}, {value: '4', option: '5 years'},
+      {value: '5', option: '5 years'}, {value: '6', option: '6 years'}, {value: '7', option: '7 years'},
+      {value: '8', option: '8 years'}, {value: '9', option: '9 years'}, {value: '10+', option: '10+ years'}];
 
-    this.classFields = [{ value: '6', option: 'Class 6'}, { value: '7', option: 'Class 7'},
-      { value: '9', option: 'Class 8'}, { value: '9', option: 'Class 9'},
-      { value: '10', option: 'Class 10'}, { value: '11', option: 'Class 11'},  { value: '12', option: 'Class 12'}];
+    this.classFields = [{value: '6', option: 'Class 6'}, {value: '7', option: 'Class 7'},
+      {value: '9', option: 'Class 8'}, {value: '9', option: 'Class 9'},
+      {value: '10', option: 'Class 10'}, {value: '11', option: 'Class 11'}, {value: '12', option: 'Class 12'}];
 
-    this.boardFields = [{ value: 'cbse_board', option: 'CBSE'}, { value: 'cg_board', option: 'CG Board'}];
-    this.mediumFields = [{ value: 'english_medium', option: 'English Medium'}, { value: 'hindi_medium', option: 'Hindi Medium'}];
-    this.timeSlotFields = [{ value: 'morning_slot', option: 'Morning Slot'}, { value: 'evening_slot', option: 'Evening Slot'}];
-    this.subjectFields = [{ value: 'all_subjects', option: 'All Subjects'}, { value: 'english', option: 'English'},
-      { value: 'hindi', option: 'Hindi'}, { value: 'physics', option: 'Physics'}, { value: 'chemistry', option: 'Chemistry'},
-      { value: 'biology', option: 'Biology'}, { value: 'science', option: 'Science'}, { value: 'mathematics', option: 'Mathematics'},
-      { value: 'accounting', option: 'Accounting'}, { value: 'other', option: 'Other'}];
+    this.boardFields = [{value: 'cbse_board', option: 'CBSE'}, {value: 'cg_board', option: 'CG Board'}];
+    this.mediumFields = [{value: 'english_medium', option: 'English Medium'}, {value: 'hindi_medium', option: 'Hindi Medium'}];
+    this.timeSlotFields = [{value: 'morning_slot', option: 'Morning Slot'}, {value: 'evening_slot', option: 'Evening Slot'}];
+    this.subjectFields = [{value: 'all_subjects', option: 'All Subjects'}, {value: 'english', option: 'English'},
+      {value: 'hindi', option: 'Hindi'}, {value: 'physics', option: 'Physics'}, {value: 'chemistry', option: 'Chemistry'},
+      {value: 'biology', option: 'Biology'}, {value: 'science', option: 'Science'}, {value: 'mathematics', option: 'Mathematics'},
+      {value: 'accounting', option: 'Accounting'}, {value: 'other', option: 'Other'}];
 
-    this.uploadPreset  = this.cloudinary.config().upload_preset;
+    this.uploadPreset = this.cloudinary.config().upload_preset;
     this.uploaderOptions = {
       url: `https://api.cloudinary.com/v1_1/${this.cloudinary.config().cloud_name}/upload`,
       autoUpload: true, // Upload files automatically upon addition to upload queue
@@ -82,7 +82,7 @@ export class ApplyJobPageComponent implements OnInit {
       classFieldFrom: new FormControl('select_class'),
       classFieldTo: new FormControl('select_class'),
       resumeFileField: new FormControl('', [Validators.required]),
-      honeypot: new FormControl('')
+      message: new FormControl('')
     });
 
     this.subscribeToFormChanges();
@@ -119,7 +119,7 @@ export class ApplyJobPageComponent implements OnInit {
   }
 
   saveForm(form): void {
-   const formData: any = {
+    const formData: any = {
       name: form.nameInputField,
       email: form.emailInputField,
       mobile: form.mobileInputField,
@@ -128,7 +128,7 @@ export class ApplyJobPageComponent implements OnInit {
       mediumPreference: this.checkboxArrToString(form.mediumCheckboxField, this.mediumFields),
       timeSlotPreference: this.checkboxArrToString(form.timeSlotCheckboxField, this.timeSlotFields),
       subjectPreference: this.checkboxArrToString(form.subjectCheckBoxField, this.subjectFields),
-      message: form.honeypot
+      message: form.message
     };
 
     if (form.roleInputField !== 'select_role') {
@@ -154,17 +154,19 @@ export class ApplyJobPageComponent implements OnInit {
       }
     }
 
-    this.http.post('https://getsimpleform.com/messages?form_api_token=d325e6a285da0c5f10431fbda6cacb34', body.toString(), {
-        headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-      }
-    ).subscribe((data) => {
-      console.log('success', data);
-    }, (err) => {
-      if (err.status === 200) {
-        console.log('success');
-      }
-    });
-}
+    if (formData.message === '') {
+      this.http.post('https://getsimpleform.com/messages?form_api_token=d325e6a285da0c5f10431fbda6cacb34', body.toString(), {
+          headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+        }
+      ).subscribe((data) => {
+        console.log('success', data);
+      }, (err) => {
+        if (err.status === 200) {
+          console.log('success');
+        }
+      });
+    }
+  }
 
   subscribeToFormChanges(): void {
     // initialize stream

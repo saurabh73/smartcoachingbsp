@@ -8,3 +8,90 @@
       </div>
     </div>
 </header>
+<section class="main-content">
+  <div class="container bg-white py-3">
+    <div class="content-tile">
+      <h3 class="text-primary font-weight-light">Please fill your details</h3>
+    </div>
+    <form [formGroup]="enquiryForm" class="row" novalidate (ngSubmit)="saveForm(enquiryForm.value)">
+      <!-- Name Field -->
+      <div class="form-group col-12">
+        <label for="nameInputField">Name</label>
+        <input type="text" class="form-control" [class.is-valid]="enquiryForm.controls['nameInputField'].valid"
+               [class.is-invalid]="enquiryForm.controls['nameInputField'].touched && !enquiryForm.controls['nameInputField'].valid"
+               id="nameInputField" name="nameInputField" placeholder="Enter your name" formControlName="nameInputField">
+        <small *ngIf="enquiryForm.controls['nameInputField'].touched && !enquiryForm.controls['nameInputField'].valid" class="form-text text-danger text-right">name is required.</small>
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group col-xs-12 col-md-6">
+        <label for="emailInputField">Email Address</label>
+        <input type="email" class="form-control" [class.is-valid]="enquiryForm.controls['emailInputField'].valid"
+               [class.is-invalid]="enquiryForm.controls['emailInputField'].touched && !enquiryForm.controls['emailInputField'].valid"
+               id="emailInputField" name="emailInputField" placeholder="Enter your email" formControlName="emailInputField">
+        <small *ngIf="enquiryForm.controls['emailInputField'].touched && enquiryForm.controls['emailInputField'].hasError('required')" class="form-text text-danger text-right">email is required.</small>
+        <small *ngIf="enquiryForm.controls['emailInputField'].touched && enquiryForm.controls['emailInputField'].hasError('email')" class="form-text text-danger text-right">please enter a valid email</small>
+      </div>
+
+      <!-- Mobile Field -->
+      <div class="form-group col-xs-12 col-md-6">
+        <label for="mobileInputField">Mobile Number</label>
+        <input type="email" class="form-control" [class.is-valid]="enquiryForm.controls['mobileInputField'].valid"
+               [class.is-invalid]="enquiryForm.controls['mobileInputField'].touched && !enquiryForm.controls['mobileInputField'].valid"
+               id="mobileInputField" name="mobileInputField" placeholder="Enter your mobile number" formControlName="mobileInputField">
+        <small *ngIf="enquiryForm.controls['mobileInputField'].touched && enquiryForm.controls['mobileInputField'].hasError('required')" class="form-text text-danger text-right">mobile number is required.</small>
+        <small *ngIf="enquiryForm.controls['mobileInputField'].touched && enquiryForm.controls['mobileInputField'].hasError('pattern')" class="form-text text-danger text-right">please enter a valid mobile number</small>
+      </div>
+
+      <!-- School  Slot -->
+      <div class="form-group col-xs-12 col-md-6">
+        <label>School</label>
+          <input type="text" class="form-control" id="schoolInputField"
+                 name="schoolInputField" placeholder="Enter your school name" formControlName="schoolInputField">
+      </div>
+
+      <!-- Class Time Slot -->
+      <div class="form-group col-xs-12 col-md-6" >
+        <label for="classSelectField">Class</label>
+        <select class="form-control" id="classSelectField" formControlName="classSelectField">
+          <option selected disabled value="select_class">Select Class</option>
+          <option *ngFor="let opt of classFields" [value]="opt.option" >{{ opt.option }}</option>
+        </select>
+      </div>
+
+      <!-- Board Field -->
+      <div class="form-group col-xs-12 col-md-6">
+        <label>Education Board</label>
+        <div class="form-group" >
+          <div class="form-check form-check-inline my-1">
+            <label class="form-check-label pr-3" *ngFor="let board of boardFields">
+              <input class="form-check-input" type="radio" name="boardRadioField" formControlName="boardRadioField"
+                     [value]="board.option" > {{ board.option }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teaching Medium Field -->
+      <div class="form-group col-xs-12 col-md-6" >
+        <label>Medium of Education</label>
+        <div class="form-group">
+          <div class="form-check form-check-inline my-1">
+            <label class="form-check-label pr-3" *ngFor="let medium of mediumFields">
+              <input class="form-check-input" type="radio" name="mediumRadioField" formControlName="mediumRadioField"
+                     [value]="medium.option" > {{ medium.option }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!--Honey pot-->
+      <input name='message' type='text' formcontrolname="message" [style.display]="'none'" />
+      <!-- Submit Button -->
+      <div class="form-group col-12 text-center">
+        <button type="submit" class="btn btn-lg btn-primary col-xs-12 col-md-6"  [disabled]="!enquiryForm.valid">Submit</button>
+      </div>
+
+    </form>
+  </div>
+</section>

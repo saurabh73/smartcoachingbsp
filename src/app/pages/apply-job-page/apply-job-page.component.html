@@ -119,7 +119,7 @@
         <div class="form-group row" >
           <div class="col-6">
             <label for="classTaughtFromField" class="text-muted text-small">From</label>
-            <select class="form-control" id="classTaughtFromField" formControlName="classFieldFrom">
+            <select class="form-control" id="classTaughtFromField" formControlName="classSelectField">
               <option selected disabled value="select_class">Select Class</option>
               <option *ngFor="let opt of classFields" [value]="opt.value" >{{ opt.option }}</option>
             </select>
@@ -168,7 +168,7 @@
       </div>
 
       <!--Honey pot-->
-      <input name='message' type='text' formcontrolname="honeypot" [style.display]="'none'" />
+      <input name='message' type='text' formcontrolname="message" [style.display]="'none'" />
       <!-- Submit Button -->
       <div class="form-group col-12 text-center">
         <button type="submit" class="btn btn-lg btn-primary col-xs-12 col-md-6"  [disabled]="!jobForm.valid">Apply</button>
