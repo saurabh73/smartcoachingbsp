@@ -13,10 +13,12 @@ export class NotificationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.notices.push('<span>Mega Talent Scholarship exam on 15th April 2018. Call now to book your slot</span>');
-    this.notices.push('<span>New batches are starting from 1st May 2018 </span>');
-    this.notices.push('<span>Faculty recruitment process is ongoing now, visit link to apply</span>');
-
+    this.notices.push('<span>Registration for new batches start from 10th April 2018.</span>');
+    this.notices.push('<span>Mega Talent Scholarship exam on 28th April 2018.</span>');
+    this.notices.push('<span>Discount up-to 30% for scholarship winners. Special additional discount for all exam participants.</span>');
+    this.notices.push('<span>New batches are starting from 15th May 2018.</span>');
+    this.notices.push('<span>Faculty recruitment process is ongoing now (Freshers can also apply).</span>');
+    this.notices.push('<span>Job openings for support staff.</span>');
 
   }
 

@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Cloudinary} from '@cloudinary/angular-5.x';
-import {FileUploader, FileUploaderOptions, ParsedResponseHeaders} from 'ng2-file-upload';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Cloudinary } from '@cloudinary/angular-5.x';
+import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 @Component({
   selector: 'smart-apply-job-page',
   templateUrl: './apply-job-page.component.html',
@@ -27,28 +27,31 @@ export class ApplyJobPageComponent implements OnInit {
   /* Upload File fields */
   public uploadPreset: string;
   public uploader: FileUploader;
-  public coverImageLoader: any;
+  public loaderShow: boolean;
   public uploaderOptions: FileUploaderOptions;
 
-  constructor(private fb: FormBuilder, private cloudinary: Cloudinary, private http: HttpClient) {
+  public notifySuccess: boolean;
+  public notifyError: boolean;
+
+  constructor(private fb: FormBuilder, private cloudinary: Cloudinary, private http: HttpClient, private router: Router) {
     this.isTeacherRole = false;
-    this.roleFields = [{value: 'support_staff', option: 'Support Staff'}, {value: 'teacher', option: 'Teacher'}];
-    this.expFields = [{value: '0', option: '0 (fresher)'}, {value: '1', option: '1 year'},
-      {value: '2', option: '2 years'}, {value: '3', option: '3 years'}, {value: '4', option: '5 years'},
-      {value: '5', option: '5 years'}, {value: '6', option: '6 years'}, {value: '7', option: '7 years'},
-      {value: '8', option: '8 years'}, {value: '9', option: '9 years'}, {value: '10+', option: '10+ years'}];
+    this.roleFields = [{ value: 'support_staff', option: 'Support Staff' }, { value: 'teacher', option: 'Teacher' }];
+    this.expFields = [{ value: '0', option: '0 (fresher)' }, { value: '1', option: '1 year' },
+    { value: '2', option: '2 years' }, { value: '3', option: '3 years' }, { value: '4', option: '5 years' },
+    { value: '5', option: '5 years' }, { value: '6', option: '6 years' }, { value: '7', option: '7 years' },
+    { value: '8', option: '8 years' }, { value: '9', option: '9 years' }, { value: '10+', option: '10+ years' }];
 
-    this.classFields = [{value: '6', option: 'Class 6'}, {value: '7', option: 'Class 7'},
-      {value: '9', option: 'Class 8'}, {value: '9', option: 'Class 9'},
-      {value: '10', option: 'Class 10'}, {value: '11', option: 'Class 11'}, {value: '12', option: 'Class 12'}];
+    this.classFields = [{ value: '6', option: 'Class 6' }, { value: '7', option: 'Class 7' },
+    { value: '9', option: 'Class 8' }, { value: '9', option: 'Class 9' },
+    { value: '10', option: 'Class 10' }, { value: '11', option: 'Class 11' }, { value: '12', option: 'Class 12' }];
 
-    this.boardFields = [{value: 'cbse_board', option: 'CBSE'}, {value: 'cg_board', option: 'CG Board'}];
-    this.mediumFields = [{value: 'english_medium', option: 'English Medium'}, {value: 'hindi_medium', option: 'Hindi Medium'}];
-    this.timeSlotFields = [{value: 'morning_slot', option: 'Morning Slot'}, {value: 'evening_slot', option: 'Evening Slot'}];
-    this.subjectFields = [{value: 'all_subjects', option: 'All Subjects'}, {value: 'english', option: 'English'},
-      {value: 'hindi', option: 'Hindi'}, {value: 'physics', option: 'Physics'}, {value: 'chemistry', option: 'Chemistry'},
-      {value: 'biology', option: 'Biology'}, {value: 'science', option: 'Science'}, {value: 'mathematics', option: 'Mathematics'},
-      {value: 'accounting', option: 'Accounting'}, {value: 'other', option: 'Other'}];
+    this.boardFields = [{ value: 'cbse_board', option: 'CBSE' }, { value: 'cg_board', option: 'CG Board' }];
+    this.mediumFields = [{ value: 'english_medium', option: 'English Medium' }, { value: 'hindi_medium', option: 'Hindi Medium' }];
+    this.timeSlotFields = [{ value: 'morning_slot', option: 'Morning Slot' }, { value: 'evening_slot', option: 'Evening Slot' }];
+    this.subjectFields = [{ value: 'all_subjects', option: 'All Subjects' }, { value: 'english', option: 'English' },
+    { value: 'hindi', option: 'Hindi' }, { value: 'physics', option: 'Physics' }, { value: 'chemistry', option: 'Chemistry' },
+    { value: 'biology', option: 'Biology' }, { value: 'science', option: 'Science' }, { value: 'mathematics', option: 'Mathematics' },
+    { value: 'accounting', option: 'Accounting' }, { value: 'other', option: 'Other' }];
 
     this.uploadPreset = this.cloudinary.config().upload_preset;
     this.uploaderOptions = {
@@ -62,10 +65,10 @@ export class ApplyJobPageComponent implements OnInit {
       }]
     };
 
-    this.coverImageLoader = {
-      inProgress: false,
-      progressValue: 0
-    };
+    this.loaderShow = false;
+    this.notifyError = false;
+    this.notifySuccess = false;
+    this.resumeFileName = 'Select file';
   }
 
   ngOnInit() {
@@ -97,28 +100,26 @@ export class ApplyJobPageComponent implements OnInit {
       // Use default "withCredentials" value for CORS requests
       fileItem.withCredentials = false;
       this.resumeFileName = fileItem.file.name;
-      return {fileItem, form};
+      return { fileItem, form };
     };
 
     this.uploader.onAfterAddingFile = (item: any): any => {
-      this.coverImageLoader.inProgress = true;
+      this.loaderShow = true;
     };
 
     // Update model on completion of uploading a file
     this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders): any => {
       const res: any = JSON.parse(response);
       this.resumeFileUrl = res.url;
-      this.coverImageLoader.inProgress = false;
-      this.coverImageLoader.progressValue = 0;
-      return {item, response, status, headers};
+      this.loaderShow = false;
+      this.jobForm.controls['resumeFileField'].setErrors(null);
+      return { item, response, status, headers };
     };
-    // Update model on upload progress event
-    this.uploader.onProgressItem = (fileItem: any, progress: any) => {
-      this.coverImageLoader.progressValue = progress;
-    };
+
   }
 
   saveForm(form): void {
+    this.loaderShow = true;
     const formData: any = {
       name: form.nameInputField,
       email: form.emailInputField,
@@ -156,13 +157,23 @@ export class ApplyJobPageComponent implements OnInit {
 
     if (formData.message === '') {
       this.http.post('https://getsimpleform.com/messages?form_api_token=d325e6a285da0c5f10431fbda6cacb34', body.toString(), {
-          headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-        }
+        headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+      }
       ).subscribe((data) => {
-        console.log('success', data);
+        console.log('success');
+        this.loaderShow = false;
+        this.notifySuccess = true;
+        this.redirectToHome();
       }, (err) => {
         if (err.status === 200) {
           console.log('success');
+          this.loaderShow = false;
+          this.notifySuccess = true;
+          this.redirectToHome();
+        } else {
+          this.loaderShow = false;
+          this.notifyError = false;
+          this.redirectToHome();
         }
       });
     }
@@ -186,6 +197,15 @@ export class ApplyJobPageComponent implements OnInit {
       }
     });
     return strValue.substr(0, strValue.length - 2).trim();
+  }
+
+  redirectToHome() {
+    setTimeout(() => {
+      this.notifyError = false;
+      this.notifySuccess = false;
+      this.loaderShow = false;
+      this.router.navigateByUrl('/home');
+    }, 5000);
   }
 
 }

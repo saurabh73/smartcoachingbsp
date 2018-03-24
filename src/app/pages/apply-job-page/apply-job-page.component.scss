@@ -14,3 +14,10 @@
   background-color: #eeeeee;
 }
 
+.file-input{
+  max-height: 100%;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 80px);
+  white-space: nowrap;
+  overflow: hidden;
+}

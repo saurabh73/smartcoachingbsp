@@ -119,7 +119,7 @@
         <div class="form-group row" >
           <div class="col-6">
             <label for="classTaughtFromField" class="text-muted text-small">From</label>
-            <select class="form-control" id="classTaughtFromField" formControlName="classSelectField">
+            <select class="form-control" id="classTaughtFromField" formControlName="classFieldFrom">
               <option selected disabled value="select_class">Select Class</option>
               <option *ngFor="let opt of classFields" [value]="opt.value" >{{ opt.option }}</option>
             </select>
@@ -160,11 +160,6 @@
           </div>
         </div>
         <small *ngIf="jobForm.controls['resumeFileField'].touched && !jobForm.controls['resumeFileField'].valid" class="form-text text-danger text-right">resume is required.</small>
-        <div class="progress my-3" style="height: 4px;" *ngIf="coverImageLoader.inProgress">
-          <div class="progress-bar progress-bar-striped" role="progressbar" [style.width]="coverImageLoader.progressValue | percent:'1.0-1'" style="height: 4px;"
-               [attr.aria-valuenow]="coverImageLoader.progressValue" aria-valuemin="0" aria-valuemax="100">
-          </div>
-        </div>
       </div>
 
       <!--Honey pot-->
@@ -177,3 +172,7 @@
     </form>
   </div>
 </section>
+
+<smart-loading *ngIf="loaderShow"></smart-loading>
+<smart-success-notification [message]="'for your application'" *ngIf="notifySuccess"></smart-success-notification>
+<smart-error-notification  *ngIf="notifyError"></smart-error-notification>

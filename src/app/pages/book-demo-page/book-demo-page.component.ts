@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'smart-book-demo-page',
@@ -14,13 +15,21 @@ export class BookDemoPageComponent implements OnInit {
   public mediumFields: any[];
   public classFields: any[];
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
-    this.classFields = [{ value: '6', option: 'Class 6'}, { value: '7', option: 'Class 7'},
-      { value: '9', option: 'Class 8'}, { value: '9', option: 'Class 9'},
-      { value: '10', option: 'Class 10'}, { value: '11', option: 'Class 11'},  { value: '12', option: 'Class 12'}];
+  public loaderShow: boolean;
+  public notifySuccess: boolean;
+  public notifyError: boolean;
 
-    this.boardFields = [{ value: 'cbse_board', option: 'CBSE'}, { value: 'cg_board', option: 'CG Board'}];
-    this.mediumFields = [{ value: 'english_medium', option: 'English Medium'}, { value: 'hindi_medium', option: 'Hindi Medium'}];
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
+    this.classFields = [{ value: '6', option: 'Class 6' }, { value: '7', option: 'Class 7' },
+    { value: '9', option: 'Class 8' }, { value: '9', option: 'Class 9' },
+    { value: '10', option: 'Class 10' }, { value: '11', option: 'Class 11' }, { value: '12', option: 'Class 12' }];
+
+    this.boardFields = [{ value: 'cbse_board', option: 'CBSE' }, { value: 'cg_board', option: 'CG Board' }];
+    this.mediumFields = [{ value: 'english_medium', option: 'English Medium' }, { value: 'hindi_medium', option: 'Hindi Medium' }];
+
+    this.notifyError = false;
+    this.notifySuccess = false;
+    this.loaderShow = false;
   }
 
   ngOnInit() {
@@ -37,7 +46,7 @@ export class BookDemoPageComponent implements OnInit {
   }
 
   saveForm(form): void {
-
+    this.loaderShow = true;
     const body = new URLSearchParams();
     for (let key in form) {
       if (form.hasOwnProperty(key)) {
@@ -51,16 +60,35 @@ export class BookDemoPageComponent implements OnInit {
 
     if (form.message === '') {
       this.http.post('https://getsimpleform.com/messages?form_api_token=01da805abe24c1ebb67e766ab9aade94', body.toString(), {
-          headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-        }
+        headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+      }
       ).subscribe((data) => {
-        console.log('success', data);
+        console.log('success');
+        this.loaderShow = false;
+        this.notifySuccess = true;
+        this.redirectToHome();
       }, (err) => {
         if (err.status === 200) {
           console.log('success');
+          this.loaderShow = false;
+          this.notifySuccess = true;
+          this.redirectToHome();
+        } else {
+          this.loaderShow = false;
+          this.notifyError = false;
+          this.redirectToHome();
         }
       });
     }
 
+  }
+
+  redirectToHome() {
+    setTimeout(() => {
+      this.notifyError = false;
+      this.notifySuccess = false;
+      this.loaderShow = false;
+      this.router.navigateByUrl('/home');
+    }, 5000);
   }
 }

@@ -95,3 +95,6 @@
     </form>
   </div>
 </section>
+<smart-loading *ngIf="loaderShow"></smart-loading>
+<smart-success-notification [message]="'for your enquiry'" *ngIf="notifySuccess"></smart-success-notification>
+<smart-error-notification  *ngIf="notifyError"></smart-error-notification>

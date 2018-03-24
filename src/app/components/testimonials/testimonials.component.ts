@@ -19,7 +19,7 @@ export class TestimonialsComponent implements OnInit {
     this.testimonials.push({
       content: `Teachers at Smart Coaching Classes are very kind and helpful
       . It has been a great learning experience here.`,
-      name: 'Vikas',
+      name: 'Prakash',
       course: 'Class 12, Batch 2017'
     });
 

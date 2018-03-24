@@ -15,6 +15,10 @@ import { BookDemoPageComponent, ApplyJobPageComponent, HomePageComponent } from 
 import { Cloudinary as CloudinaryCore } from 'cloudinary-core';
 import { FileUploadModule } from 'ng2-file-upload';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingComponent } from './components/loading/loading.component';
+import { SuccessNotificationComponent } from './components/success-notification/success-notification.component';
+import { ErrorNotificationComponent } from './components/error-notification/error-notification.component';
+import { ReviewComponent } from './components/review/review.component';
 
 export const cloudinary = {
   Cloudinary: CloudinaryCore
@@ -36,7 +40,11 @@ export const config: CloudinaryConfiguration = {
     FormContainerComponent,
     BookDemoPageComponent,
     ApplyJobPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    LoadingComponent,
+    SuccessNotificationComponent,
+    ErrorNotificationComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
