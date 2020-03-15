@@ -1,37 +1,65 @@
 backend:
-    name: git-gateway
-    branch: master # Branch to update (optional; defaults to master)
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
 
 collections:
-    - label: "Pages"
-      name: "pages"
-      files:
-          - label: "Home Page"
-            name: "home"
-            file: "src/_data/home.json"
+  - label: "SEO"
+    name: "seo"
+    files:
+      - label: "SEO Data"
+        name: "seo_metadata"
+        file: "src/_data/seo.json"
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Description"
+            name: "description"
+            widget: "text"
+          - label: "URL"
+            name: "url"
+            widget: "string"
+            options:
+              default: "https://smartcoaching.netlify.com/"
+          - label: "Author"
+            name: "author"
+            widget: "text"
+          - label: "Image"
+            name: "image"
+            widget: "image"
+            media_library:
+              config:
+                multiple: false
+
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "src/_data/home.json"
+        fields:
+          - label: Title
+            name: title
+            widget: string
+          - label: "Focus Keyword"
+            name: "yoast_keyword"
+            widget: "string"
+          - label: "Meta Description"
+            name: "description"
+            widget: "string"
+          - label: "Content"
+            name: "content"
+            widget: "object"
             fields:
-                - label: Title
-                  name: title
-                  widget: string
-                - label: "Focus Keyword"
-                  name: "yoast_keyword"
-                  widget: "string"
-                - label: "Meta Description"
-                  name: "description"
-                  widget: "string"
-                - label: "Content"
-                  name: "content"
-                  widget: "object"
-                  fields:
-                      - label: Intro
-                        name: intro
-                        widget: text
-                      - label: IntroImage
-                        name: introImage
-                        widget: image
-                        media_library:
-                            config:
-                                multiple: false
+              - label: "Intro"
+                name: "intro"
+                widget: "text"
+              - label: "IntroImage"
+                name: "introImage"
+                widget: "image"
+                media_library:
+                  config:
+                    multiple: false
 
 media_folder: "src/images/uploads"
 public_folder: "/images/uploads"
