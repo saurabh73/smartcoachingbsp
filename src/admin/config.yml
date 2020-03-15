@@ -23,7 +23,7 @@ collections:
               default: "https://smartcoaching.netlify.com/"
           - label: "Author"
             name: "author"
-            widget: "text"
+            widget: "string"
           - label: "Image"
             name: "image"
             widget: "image"
