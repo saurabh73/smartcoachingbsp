@@ -3,16 +3,24 @@ backend:
     branch: master # Branch to update (optional; defaults to master)
 
 collections:
-    - name: "home"
-      label: "Home"
-      folder: "_data"
-      create: true
-      slug: "{{slug}}"
-      fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Publish Date", name: "date", widget: "datetime" }
-          - { label: "Summary", name: "summary", widget: "text" }
-          - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
-          - { label: "Body", name: "body", widget: "markdown" }
+    - label: "Pages"
+      name: "pages"
+      files:
+          - label: "Home Page"
+            name: "home"
+            file: "src/_data/home.json"
+            fields:
+                - label: Title
+                  name: title
+                  widget: string
+                - label: Intro
+                  name: intro
+                  widget: text
+                - label: IntroImage
+                  name: introImage
+                  widget: image
+                  media_library:
+                      config:
+                          multiple: false
 
 media_folder: "images/uploads"
