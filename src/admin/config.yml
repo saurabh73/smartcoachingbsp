@@ -3,8 +3,8 @@ backend:
   branch: master # Branch to update (optional; defaults to master)
 
 collections:
-  - label: "SEO"
-    name: "seo"
+  - label: "Global"
+    name: "global"
     files:
       - label: "SEO Data"
         name: "seo_metadata"
