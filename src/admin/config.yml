@@ -41,7 +41,7 @@ collections:
     files:
       - label: "Home Page"
         name: "home"
-        file: "src/_data/home.md"
+        file: "src/index.11tydata.yaml"
         fields:
           - label: Title
             name: title
