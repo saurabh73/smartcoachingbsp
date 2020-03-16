@@ -1,7 +1,9 @@
 {
-  "title": "Foobar Site",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "title": "Smart Coaching Classess Bilaspur",
+  "description": "Smart Coaching classes aims to provide quality education in Bilaspur and build up a bright academic career for our students. We specializes in providing well qualified and experienced faculties.\nOur programs include classes for all subjects for students from 6th to 12th for both CBSE & CG board studying in English or Hindi medium",
   "url": "https://smartcoaching.netlify.com",
-  "author": "Jane Doe",
-  "image": "/images/uploads/logo.png"
+  "author": "Saurabh Dutta",
+  "image": "/images/uploads/logo.png",
+  "keywords": "smart coaching",
+  "body": "Smart Coaching classes's aim is to provide quality education in Bilaspur and build up a bright academic career for our students. \n\nWe specializes in providing well qualified and experienced faculties. Our programs include classes for all subjects for students from 6th to 12th for both CBSE & CG board studying in English or Hindi medium"
 }
