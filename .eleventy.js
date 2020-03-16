@@ -2,7 +2,7 @@ const pluginSEO = require("eleventy-plugin-seo");
 const markdownIt = require("markdown-it");
 const yaml = require("js-yaml");
 
-// const yaml = require("js-yaml");
+// const yaml = require("js-yaml");eleventyConfig.addDataExtension("yaml", contents => yaml.safeLoad(contents));
 
 module.exports = function(eleventyConfig) {
   
@@ -18,12 +18,14 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy('src/images')
 
+  eleventyConfig.addDataExtension("yaml", contents => yaml.safeLoad(contents));
+
   eleventyConfig.addPlugin(pluginSEO, require("./src/_data/seo.json"));
  
   eleventyConfig.addPairedShortcode("markdown", (content) => {
     return md.renderInline(content);
   });
-  eleventyConfig.addDataExtension("yaml", contents => yaml.safeLoad(contents));
+  
 
   // eleventyConfig.addDataExtension("yaml", contents => yaml.safeLoad(contents));
 
