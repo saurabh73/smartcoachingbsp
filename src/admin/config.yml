@@ -28,7 +28,7 @@ collections:
             name: "body"
             widget: "markdown"
           - label: "Focus Keyword"
-            name: "seo_keyword"
+            name: "keywords"
             widget: "string"
           - label: "Image"
             name: "image"

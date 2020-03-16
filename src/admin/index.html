@@ -21,7 +21,7 @@
             YOAST.setContent({
                 title: entry.getIn(['data', 'title']) || '',
                 description: entry.getIn(['data', 'description']) || '',
-                keyword: entry.getIn(['data', 'seo_keyword']) || '',
+                keyword: entry.getIn(['data', 'keywords']) || '',
                 text: entry.getIn(['data', 'body']) || '',
                 titleWidth: entry.getIn(['data', 'title']).split('').length * 5
             });
