@@ -36,33 +36,25 @@ collections:
 
   - label: "Pages"
     name: "pages"
+    editor:
+      preview: false
     files:
       - label: "Home Page"
         name: "home"
-        file: "src/_data/home.json"
+        file: "src/_data/home.md"
         fields:
           - label: Title
             name: title
             widget: string
-          - label: "Focus Keyword"
-            name: "yoast_keyword"
-            widget: "string"
-          - label: "Meta Description"
-            name: "description"
-            widget: "string"
-          - label: "Content"
-            name: "content"
-            widget: "object"
-            fields:
-              - label: "Intro"
-                name: "intro"
-                widget: "text"
-              - label: "IntroImage"
-                name: "introImage"
-                widget: "image"
-                media_library:
-                  config:
-                    multiple: false
+          - label: "Intro"
+            name: "intro"
+            widget: "markdown"
+          - label: "Intro Image"
+            name: "introImage"
+            widget: "image"
+            media_library:
+              config:
+                multiple: false
 
 media_folder: "src/images/uploads"
 public_folder: "/images/uploads"
