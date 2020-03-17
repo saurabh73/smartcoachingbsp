@@ -35,7 +35,18 @@ features:
     description: We conduct spoken english classes for personality development
   - description: We have affordable fee structure with easy installments scheme
     icon: /images/uploads/save_money.svg
-    title: Affordable Fees
+    title: Affordable Fees  
+faculties:
+  - photo: /images/uploads/pp.jpeg
+    name: Sumit Sinha
+    qualification: 'M.Com, PGDCA, PGDM'
+    experience: 8+ years
+    speciality: Commerce & Computers
+  - photo: /images/uploads/whatsapp-image-2020-03-08-at-3.27.09-pm.jpeg
+    name: Sandhya Dewangan
+    experience: 8+ years
+    speciality: Chemistry & Biology
+    qualification: 'M.Sc, M.A, B.Ed'
 contact:
   phone_numbers:
     - +91-9754495403
