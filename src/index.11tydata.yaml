@@ -17,3 +17,9 @@ forms:
     button_title: Book Demo
   - form_id: '158429960265543213'
     button_title: Work with us
+contact:
+  phone_numbers:
+    - +91-9754495403
+    - +91-8602032903
+    - +91-9893069961
+  email_address: smartcoachingbsp@gmail.com
