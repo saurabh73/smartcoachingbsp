@@ -8,8 +8,33 @@ intro:
     Our programs include classes for all subjects for students from 6th to 12th
     for both CBSE & CG board studying in English or Hindi medium
   title: Smart Coaching Classes
+  notices:
+    - New batches are starting from 15th April 2019
+    - Faculty recruitment process is ongoing now (Freshers can also apply).
+    - Job openings for support staff.
 forms:
   - form_id: '158429846942866268'
     button_title: Book Demo
   - form_id: '158429960265543213'
     button_title: Work with us
+contact:
+  phone_numbers:
+    - +91-9754495403
+    - +91-8602032903
+    - +91-9893069961
+  email_address: smartcoachingbsp@gmail.com
+  address: |-
+    Keshav Murra Bhatta Road,
+
+    Near Transformer,Hemu Nagar 
+
+    Bilaspur, 495004
+social_links:
+  - title: facebook
+    link: 'https://www.facebook.com/smartcoachingbsp/'
+  - title: google
+    link: >-
+      https://www.google.co.in/maps/place/SMART+COACHING+CLASSES/@22.0566379,82.1840905,16z/data=!4m8!1m2!2m1!1ssmart+coaching+centre+bilaspur!3m4!1s0x0:0x6852fd98c1b0ab06!8m2!3d22.0553098!4d82.1887314
+  - title: justdial
+    link: >-
+      https://www.justdial.com/Bilaspur-Chhattisgarh/Smart-Coaching-Classes/9999P7752-7752-180913000718-K5K4_BZDET
