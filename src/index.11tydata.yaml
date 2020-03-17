@@ -17,6 +17,25 @@ forms:
     button_title: Book Demo
   - form_id: '158429960265543213'
     button_title: Work with us
+features:
+  - description: We specializes in providing well qualified and experienced faculties
+    title: Experienced Faculty
+    icon: /images/uploads/teacher.svg
+  - title: Frequent Tests
+    icon: /images/uploads/exams.svg
+    description: We frequently conduct tests to monitor student progress and weak areas
+  - title: Performance Reports
+    icon: /images/uploads/test_reports.svg
+    description: We provide performance reports to help your parents track your progress
+  - description: We facilitate doubt clearing and revision sessions for better learning
+    icon: /images/uploads/revisions.svg
+    title: Revision Sessions
+  - title: Spoken English
+    icon: /images/uploads/spoken_english.svg
+    description: We conduct spoken english classes for personality development
+  - description: We have affordable fee structure with easy installments scheme
+    icon: /images/uploads/save_money.svg
+    title: ' Affordable Fees'
 contact:
   phone_numbers:
     - +91-9754495403
