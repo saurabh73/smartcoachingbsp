@@ -81,34 +81,49 @@ collections:
                     multiple: false
               - label: Notices
                 name: notices
-                widget: list
-                allow_add: true
-                collapsed: false
+                widget: list                
                 field: { label: Content, name: content, widget: string }
           - label: Forms
             name: forms
-            widget: list
-            allow_add: true
-            collapsed: false
+            widget: list            
             fields:
-              - label: Form ID
-                name: form_id
               - label: Button Title
                 name: button_title
+              - label: Form ID
+                name: form_id
           - label: Features
             name: features
             widget: list
-            collapsed: false
             fields:
               - label: Title
                 name: title
               - label: Icon
                 name: icon
+                widget: image
                 media_library:
                   config:
                     multiple: false
               - label: Description
                 name: description
+                widget: text
+          - label: Faculties
+            name: faculties
+            widget: list
+            fields:
+              - label: Photo
+                name: photo
+                widget: image
+                media_library:
+                  config:
+                    multiple: false
+              - label: Name
+                name: name
+              - label: Experience
+                name: experience
+              - label: Speciality
+                name: speciality
+              - label: Qualification
+                name: qualification
           - label: Contact
             name: contact
             widget: object
@@ -118,7 +133,6 @@ collections:
               - label: Phone Numbers
                 name: phone_numbers
                 widget: list
-                collapsed: false
                 field: { label: mobile, name: mobile, widget: string }
               - label: Address
                 name: address
@@ -128,7 +142,6 @@ collections:
           - label: Social Media link
             name: social_links
             widget: list
-            collapsed: false
             fields:
               - label: Title
                 name: title
