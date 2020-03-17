@@ -3,58 +3,87 @@ backend:
   branch: master # Branch to update (optional; defaults to master)
 
 collections:
-  - label: "Global"
-    name: "global"
+  - label: Global
+    name: global
     files:
-      - label: "SEO Data"
-        name: "seo_metadata"
-        file: "src/_data/seo.json"
+      - label: Site Data
+        name: site_data
+        file: src/_data/site.json
         fields:
-          - label: "Title"
-            name: "title"
-            widget: "string"
-          - label: "Description"
-            name: "description"
-            widget: "text"
-          - label: "URL"
-            name: "url"
-            widget: "string"
-            options:
-              default: "https://smartcoaching.netlify.com/"
-          - label: "Author"
-            name: "author"
-            widget: "string"
-          - label: "Focus Keyword"
-            name: "keywords"
-            widget: "string"
-          - label: "Image"
-            name: "image"
-            widget: "image"
+          - label: Logo
+            name: logo
+            widget: image
+            media_library:
+              config:
+                multiple: false
+          - label: Logo Light
+            name: logo_light
+            widget: image
+            media_library:
+              config:
+                multiple: false
+          - label: Logo Dark
+            name: logo_dark
+            widget: image
             media_library:
               config:
                 multiple: false
 
-  - label: "Pages"
-    name: "pages"
-    editor:
-      preview: false
-    files:
-      - label: "Home Page"
-        name: "home"
-        file: "src/index.11tydata.yaml"
+      - label: SEO Data
+        name: seo_metadata
+        file: src/_data/seo.json
         fields:
           - label: Title
             name: title
             widget: string
-          - label: "Intro"
-            name: "intro"
-            widget: "markdown"
-          - label: "Intro Image"
-            name: "introImage"
-            widget: "image"
+          - label: Description
+            name: description
+            widget: text
+          - label: URL
+            name: url
+            widget: string
+            options:
+              default: https://smartcoaching.netlify.com/
+          - label: Author
+            name: author
+            widget: string
+            options:
+              default: Saurabh Dutta
+          - label: Focus Keyword
+            name: keywords
+            widget: string
+          - label: Image
+            name: image
+            widget: image
             media_library:
               config:
                 multiple: false
 
-media_folder: "src/images/uploads"
-public_folder: "/images/uploads"
+  - label: Pages
+    name: pages
+    editor:
+      preview: false
+    files:
+      - label: Home Page
+        name: home
+        file: src/index.11tydata.yaml
+        fields:
+          - label: Intro
+            name: intro
+            widget: object
+            fields:
+              - label: Title
+                name: title
+                widget: string
+              - label: Text
+                name: text
+                widget: markdown
+              - label: Image
+                name: image
+                widget: image
+                media_library:
+                  config:
+                    multiple: false
+
+media_folder: src/images/uploads
+public_folder: /images/uploads
