@@ -111,7 +111,7 @@ collections:
                 name: address
                 widget: markdown
               - label: Map
-                name: Map                            
+                name: map                            
 
           - label: Social Media link
             name: social_links
