@@ -110,20 +110,36 @@ collections:
             name: faculties
             widget: list
             fields:
+              - label: Name
+                name: name
               - label: Photo
                 name: photo
                 widget: image
                 media_library:
                   config:
-                    multiple: false
-              - label: Name
-                name: name
+                    multiple: false              
               - label: Experience
                 name: experience
               - label: Speciality
                 name: speciality
               - label: Qualification
                 name: qualification
+          - label: Testimonials
+            name: testimonials
+            widget: list
+            fields:
+              - label: Name
+                name: name
+              - label: SubText
+                name: subtext
+                required: false
+              - label: Content
+                name: content
+                widget: text
+          - label: Gallery
+            name: gallery
+            widget: list
+            field: { label: Image, name: image, widget: image }
           - label: Contact
             name: contact
             widget: object
