@@ -10,3 +10,12 @@ title: Home
 </div>
 
 <img src="{{intro.image}}" height="100">
+{% for form in forms %}
+    <button type="button" data-arengu-modal-form-id="{{form.form_id}}">{{form.button_title}}</button>
+{% endfor %}
+
+
+
+{# Scripts #}
+<script async src="https://sdk.arengu.com/forms.js"></script>
+<script async src="https://sdk.arengu.com/modal.js"></script>

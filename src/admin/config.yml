@@ -35,23 +35,19 @@ collections:
         fields:
           - label: Title
             name: title
-            widget: string
           - label: Description
             name: description
             widget: text
           - label: URL
             name: url
-            widget: string
             options:
               default: https://smartcoaching.netlify.com/
           - label: Author
             name: author
-            widget: string
             options:
               default: Saurabh Dutta
           - label: Focus Keyword
             name: keywords
-            widget: string
           - label: Image
             name: image
             widget: image
@@ -74,7 +70,6 @@ collections:
             fields:
               - label: Title
                 name: title
-                widget: string
               - label: Text
                 name: text
                 widget: markdown
@@ -84,16 +79,49 @@ collections:
                 media_library:
                   config:
                     multiple: false
+              - label: Notices
+                name: notices
+                widget: list
+                allow_add: true
+                collapsed: false
+                field: { label: Content, name: content, widget: string }
           - label: Forms
             name: forms
             widget: list
             allow_add: true
+            collapsed: false
             fields:
               - label: Form ID
                 name: form_id
               - label: Button Title
                 name: button_title
-                widget: string
+          - label: Contact
+            name: contact
+            widget: object
+            fields:
+              - label: Email Address
+                name: email_address              
+              - label: Phone Numbers
+                name: phone_numbers
+                widget: list
+                allow_add: true
+                collapsed: false
+                field: { label: mobile, name: mobile, widget: string }
+              - label: Address
+                name: address
+                widget: markdown
+              - label: Map
+                name: Map                            
+
+          - label: Social Media link
+            name: social_links
+            widget: list
+            fields:
+              - label: Title
+                name: title
+              - label: Link
+                name: link
+                  
               
 
 
