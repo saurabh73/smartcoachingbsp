@@ -47,6 +47,25 @@ faculties:
     experience: 8+ years
     speciality: Chemistry & Biology
     qualification: 'M.Sc, M.A, B.Ed'
+testimonials:
+  - content: >-
+      Frequent exams helped me feel constantly challenged to push myself to
+      exceed what is expected.
+    name: Abhishek
+    subtext: 'Class 12, Batch 2017'
+  - content: >-
+      Teachers at Smart Coaching Classes are very kind and helpful . It has been
+      a great learning experience here.
+    subtext: 'Class 12, Batch 2017'
+    name: Prakash
+  - content: >-
+      The teaching, in my opinion, is the best that anyone can hope for .
+      Teachers provide an environment in which students are able to reach their
+      full potentia
+    name: Krishna
+    subtext: 'Class 12, Batch 2017'
+gallery:
+  - /images/uploads/scc-illustration.svg
 contact:
   phone_numbers:
     - +91-9754495403
