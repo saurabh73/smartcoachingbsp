@@ -84,6 +84,18 @@ collections:
                 media_library:
                   config:
                     multiple: false
+          - label: Forms
+            name: forms
+            widget: list
+            allow_add: true
+            fields:
+              - label: Form ID
+                name: form_id
+              - label: Button Title
+                name: button_title
+                widget: string
+              
+
 
 media_folder: src/images/uploads
 public_folder: /images/uploads
