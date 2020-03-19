@@ -1,25 +1,82 @@
+--- 
+layout: layouts/base.njk 
+title: Home 
 ---
-layout: layouts/base.njk
-title: Home
----
-<h1>{{intro.title}}</h1>
-<div>
-{% markdown %}
-    {{intro.text}}
-{% endmarkdown %}
-</div>
+<main>
+  <!-- Intro Area Start-->
+  <section id="intro-section" class="slider-area">
+    <div class="slider-active">
+      <div class="single-slider slider-height d-flex align-items-center" data-background="images/h1_hero.png">
+        <div class="container">
+          <div class="row d-flex align-items-center">
+            <div class="col-lg-7 col-md-9 ">
+              <div class="hero__caption">
+                <h1 data-animation="fadeInLeft" data-delay=".4s">
+                  {{intro.title}}
+                </h1>
+                <p data-animation="fadeInLeft" data-delay=".6s">
+                  {% markdown %}
+                  {{intro.text}}
+                  {% endmarkdown %}
+                </p>
+              </div>
+              <div class="row">
+                <div class="w-75">
+                  {% for item in forms %}
+                    <button type="button" data-arengu-modal-form-id="{{item.form_id}}" class="btn hero-btn mt-3 ml-3">
+                      {{item.button_title}}
+                    </button>
+                  {% endfor %}
+                </div>
 
-<img src="{{intro.image}}" height="100">
-{% for form in forms %}
-    <button type="button" data-arengu-modal-form-id="{{form.form_id}}">{{form.button_title}}</button>
-{% endfor %}
+              </div>
 
+            </div>
+            <div class="col-lg-5">
+              <div class="hero__img d-none d-lg-block" data-animation="fadeInRight" data-delay="1s">
+                <img src="{{intro.image}}" alt="man with idea on a success ladder illustration"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Intro Area End-->
 
-<iframe src="{{contact.map}}" width="150" height="150" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+  <!-- What We do start-->
+  <section class="speciality section-padding">
+    <div class="container">
+      <!-- Section-tittle -->
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+          <div class="section-tittle text-center">
+            <h2>What Makes Us Special​</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        {%for item in features%}
+        <div class="col-lg-4 col-md-6">
+          <div class="single-do h-100 text-center mb-30 {%if (loop.index == 2) or (loop.index == 5)  %}active{% endif %}">
+            <div class="do-icon p-5">
+              <img src="{{item.icon}}" height="75" alt="">
+            </div>
+            <div class="do-caption">
+              <h4 class="text-primary">{{item.title}}</h4>
+              <p>
+                {{item.description}}               
+              </p>
+            </div>
+          </div>
 
-
-
-
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!-- What We do End-->
+</main>
 {# Scripts #}
-<script async src="https://sdk.arengu.com/forms.js"></script>
-<script async src="https://sdk.arengu.com/modal.js"></script>
+<script async="async" src="https://sdk.arengu.com/forms.js"></script>
+<script async="async" src="https://sdk.arengu.com/modal.js"></script>

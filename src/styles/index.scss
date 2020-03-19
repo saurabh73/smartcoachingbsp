@@ -1,7 +1,24 @@
-@import '_reset.scss';
+@import "variables";
+@import 'fonts';
+@import 'mixins';
+@import 'reset';
+@import "node_modules/bootstrap/scss/bootstrap";
+@import 'node_modules/slick-carousel/slick/slick.scss';
+@import "node_modules/slick-carousel/slick/slick-theme.scss";
 
-$var: white;
+@import 'common';
+@import 'preloader';
+@import 'headerMenu';
+@import 'h1-hero';
+@import 'speciality';
+// @import 'weCreate';
+// @import 'generating-area';
+// @import 'chooseBest';
+// @import 'visit-area';
+// @import 'tips';
+// @import 'haveProject';
 
-body {
-  background-color: $var;
+
+main {
+  // margin-top: calc(80px + 1rem);
 }
