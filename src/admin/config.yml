@@ -3,15 +3,17 @@ backend:
   branch: master # Branch to update (optional; defaults to master)
 
 collections:
-  - label: Global
-    name: global
+  - label: Site
+    name: Site
+    editor:
+      preview: false
     files:
       - label: Site Data
         name: site_data
         file: src/_data/site.json
         fields:
           - label: Contact
-            name: contact_number            
+            name: contact_number
           - label: Logo
             name: logo
             widget: image
@@ -30,7 +32,9 @@ collections:
             media_library:
               config:
                 multiple: false
-
+  - label: SEO
+    name: SEO
+    files:
       - label: SEO Data
         name: seo_metadata
         file: src/_data/seo.json
@@ -83,11 +87,11 @@ collections:
                     multiple: false
               - label: Notices
                 name: notices
-                widget: list                
+                widget: list
                 field: { label: Content, name: content, widget: string }
           - label: Forms
             name: forms
-            widget: list            
+            widget: list
             fields:
               - label: Button Title
                 name: button_title
@@ -119,7 +123,7 @@ collections:
                 widget: image
                 media_library:
                   config:
-                    multiple: false              
+                    multiple: false
               - label: Experience
                 name: experience
               - label: Speciality
@@ -138,16 +142,24 @@ collections:
               - label: Content
                 name: content
                 widget: text
-          - label: Gallery
-            name: gallery
-            widget: list
-            field: { label: Image, name: image, widget: image }
+          - label: "Gallery Section"
+            name: gallery_Section
+            widget: object
+            fields:
+              - label: "Enable Gallery"
+                name: enable_gallery
+                widget: boolean
+                default: false
+              - label: Images
+                name: images
+                widget: list
+                field: { label: Image, name: image, widget: image }
           - label: Contact
             name: contact
             widget: object
             fields:
               - label: Email Address
-                name: email_address              
+                name: email_address
               - label: Phone Numbers
                 name: phone_numbers
                 widget: list
@@ -156,7 +168,7 @@ collections:
                 name: address
                 widget: markdown
               - label: Map
-                name: map                            
+                name: map
           - label: Social Media link
             name: social_links
             widget: list
@@ -165,6 +177,6 @@ collections:
                 name: title
               - label: Link
                 name: link
-                  
+
 media_folder: src/images/uploads
 public_folder: /images/uploads
