@@ -10,6 +10,8 @@ collections:
         name: site_data
         file: src/_data/site.json
         fields:
+          - label: Contact
+            name: contact_number            
           - label: Logo
             name: logo
             widget: image

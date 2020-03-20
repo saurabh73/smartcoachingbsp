@@ -44,7 +44,42 @@ title: Home
   </section>
   <!-- Intro Area End-->
 
-  <!-- What We do start-->
+  <!-- Notices Start -->
+  <section class="testimonial-area section-padding {% if (intro.notices.length == 0) %}d-none{% endif %}">
+    <div class="container">
+      <div class="testimonial-main">
+        <!-- Section-tittle -->
+        <div class="row d-flex justify-content-center">
+          <div class="col-12 col-md-10">
+            <div class="section-tittle text-center">
+              <h2>Notices</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-10 col-md-9">
+            <div class="h1-notice-active">
+              <!-- Single Testimonial -->
+              {% for item in intro.notices %}
+                <div class="single-testimonial text-center">
+                  <div class="testimonial-caption ">
+                    <div class="testimonial-top-cap single-notice">
+                      {% markdown %}
+                      {{item}}
+                      {% endmarkdown %}
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Notices End -->
+
+  <!-- Speciality start-->
   <section class="speciality section-padding">
     <div class="container">
       <!-- Section-tittle -->
@@ -57,25 +92,188 @@ title: Home
       </div>
       <div class="row">
         {%for item in features%}
-        <div class="col-lg-4 col-md-6">
-          <div class="single-do h-100 text-center mb-30 {%if (loop.index == 2) or (loop.index == 5)  %}active{% endif %}">
-            <div class="do-icon p-5">
-              <img src="{{item.icon}}" height="75" alt="">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="single-do h-100 text-center mb-30 {%if (loop.index == 2) or (loop.index == 5)  %}active{% endif %}">
+              <div class="do-icon p-5">
+                <img src="{{item.icon}}" height="75" alt="">
+              </div>
+              <div class="do-caption">
+                <h4 class="text-primary">{{item.title}}</h4>
+                <p>
+                  {{item.description}}
+                </p>
+              </div>
             </div>
-            <div class="do-caption">
-              <h4 class="text-primary">{{item.title}}</h4>
-              <p>
-                {{item.description}}               
-              </p>
-            </div>
-          </div>
 
-        </div>
+          </div>
         {% endfor %}
       </div>
     </div>
   </section>
-  <!-- What We do End-->
+  <!-- Speciality End-->
+  <!-- Faculty start-->
+  <section class="faculties section-padding">
+    <div class="container">
+      <!-- Section-tittle -->
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-7">
+          <div class="section-tittle text-center">
+            <h2>Our Faculties</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        {% for item in faculties%}
+          <div class="col-lg-4 col-md-6">
+            <div class="single-choose text-center mb-30">
+              <div class="do-icon mb-4">
+                <img src="{{item.photo}}" alt="{{item.name}}'s photo" class="rounded-circle">
+              </div>
+              <div class="do-caption">
+                <h3>{{item.name}}</h3>
+                <ul>
+                  <li>Experience:
+                    {{item.experience}}</li>
+                  <li>Qualification:
+                    {{item.qualification}}</li>
+                  <li>Specialization:
+                    {{item.speciality}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!-- Faculty End-->
+  <!-- Testimonial Start -->
+  <section class="testimonial-area section-padding">
+    <div class="container">
+      <div class="testimonial-main">
+        <!-- Section-tittle -->
+        <div class="row d-flex justify-content-center">
+          <div class="col-12 col-md-10">
+            <div class="section-tittle text-center">
+              <h2>What Our Students Say About Us</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-10 col-md-9">
+            <div class="h1-testimonial-active">
+              <!-- Single Testimonial -->
+              {% for item in testimonials %}
+                <div class="single-testimonial text-center">
+                  <div class="testimonial-caption ">
+                    <div class="testimonial-top-cap">
+                      {% markdown %}
+                      {{item.content}}
+                      {% endmarkdown %}
+                    </div>
+                    <!-- founder -->
+                    <div class="testimonial-founder d-flex align-items-center justify-content-center">
+                      <div class="founder-text">
+                        <span>{{item.name}}</span>
+                        <p>{{item.subtext}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Testimonial End -->
+  <footer>
+    <div class="footer-main" data-background="/images/shape/footer_bg.png">
+      <div class="footer-area footer-padding">
+        <div class="container">
+          <div class="row d-flex justify-content-between">
+            <div class="col-12 col-md-4 mb-50">
+              <div class="single-footer-caption address-section">
+                  <div class="footer-tittle">
+                    <div class="footer-pera">
+                      <h4>Address
+                      </h4>
+                      <p class="info1">
+                        {% markdown %}
+                        {{contact.address}}
+                        {% endmarkdown %}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="footer-social">
+                    {% for item in social_links%}
+                    <a href="{{item.link}}">
+                      <i class="icon-{{item.title}}"></i>
+                    </a>
+                    {% endfor %}                   
+                  </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mb-50">
+              <div class="single-footer-caption">
+                <div class="footer-tittle">
+                  <h4>Contact Us</h4>
+                  <ul>
+                    {% for item in contact.phone_numbers %}
+                      <li>
+                        <p class="mb-0">{{item}}</p>
+                      </li>
+                    {% endfor %}                   
+                  </ul>
+                </div>
+                <div class="footer-tittle">
+                  <h6>Email Address</h6>
+                 <p class="email-address">{{contact.email_address}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 mb-50">
+              <div class="single-footer-caption map-section">
+                <div class="footer-tittle">
+                  <h4>Find Us Here</h4>                  
+                </div>
+                <div class=map-container>
+                 <iframe src="{{contact.map}}" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- footer-bottom aera -->
+      <div class="footer-bottom-area footer-bg">
+        <div class="container">
+          <div class="footer-border">
+            <div class="row d-flex align-items-center">
+              <div class="col-xl-12 ">
+                <div class="footer-copy-right text-center">
+                  <p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;
+                    <script>
+                      document.write(new Date().getFullYear());
+                    </script>
+                    All rights reserved | This template is made with
+                    <i class="icon-heart" aria-hidden="true"></i>
+                    by
+                    <a href="https://colorlib.com" target="_blank">Colorlib</a >
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </main>
 {# Scripts #}
 <script async="async" src="https://sdk.arengu.com/forms.js"></script>

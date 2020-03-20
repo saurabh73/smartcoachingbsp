@@ -1,5 +1,6 @@
 @import "variables";
 @import 'fonts';
+@import 'icons';
 @import 'mixins';
 @import 'reset';
 @import "node_modules/bootstrap/scss/bootstrap";
@@ -11,14 +12,6 @@
 @import 'headerMenu';
 @import 'h1-hero';
 @import 'speciality';
-// @import 'weCreate';
-// @import 'generating-area';
-// @import 'chooseBest';
-// @import 'visit-area';
-// @import 'tips';
-// @import 'haveProject';
-
-
-main {
-  // margin-top: calc(80px + 1rem);
-}
+@import 'faculty';
+@import 'testimonial';
+@import 'footer';
