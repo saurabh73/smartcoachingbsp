@@ -9,9 +9,8 @@ intro:
     for both CBSE & CG board studying in English or Hindi medium
   title: Smart Coaching Classes
   notices:
-    - New batches are starting from 15th April 2019
+    - New batches are starting from 1st May
     - Faculty recruitment process is ongoing now (Freshers can also apply).
-    - Job openings for support staff.
 forms:
   - form_id: '158429846942866268'
     button_title: Book Demo
@@ -35,7 +34,7 @@ features:
     description: We conduct spoken english classes for personality development
   - description: We have affordable fee structure with easy installments scheme
     icon: /images/uploads/save_money.svg
-    title: Affordable Fees  
+    title: Affordable Fees
 faculties:
   - photo: /images/uploads/pp.jpeg
     name: Sumit Sinha
@@ -64,11 +63,13 @@ testimonials:
       full potential.
     name: Krishna
     subtext: 'Class 12, Batch 2017'
+gallery_Section:
+  enable_gallery: false
 contact:
   phone_numbers:
+    - '9907900999'
     - '9754495403'
     - '8602032903'
-    - '9893069961'
   email_address: smartcoachingbsp@gmail.com
   address: |-
     Keshav Murra Bhatta Road,\
