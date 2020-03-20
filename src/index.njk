@@ -222,14 +222,14 @@ title: Home
                   <ul>
                     {% for item in contact.phone_numbers %}
                       <li>
-                        <p class="mb-0">{{item}}</p>
+                        <a href="tel:+91{{item}}" class="mb-0">{{item}}</a>
                       </li>
                     {% endfor %}                   
                   </ul>
                 </div>
                 <div class="footer-tittle">
                   <h6>Email Address</h6>
-                 <p class="email-address">{{contact.email_address}}</p>
+                 <a href="mailto:{{contact.email_address}}" class="email-address">{{contact.email_address}}</a>
                 </div>
               </div>
             </div>

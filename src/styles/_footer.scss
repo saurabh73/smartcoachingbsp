@@ -17,22 +17,19 @@
   }
   .footer-tittle {
     & h4 {
-      color: #012f5f;
+      color: $primary;
       font-size: 20px;
-      margin-bottom: 48px;
+      margin-bottom: 32px;
       font-weight: 500;
       text-transform: capitalize;
     }
     & ul {
       & li {
-        color: #012f5f;
         margin-bottom: 15px;
-        & a {
-          color: #868c98;
+        & a {          
           font-weight: 300;
           &:hover {
-            color: $theme-color;
-            padding-left: 5px;
+            color: $primary;
           }
         }
       }
@@ -114,12 +111,12 @@
       line-height: 2;
       margin-bottom: 12px;
       & i {
-        color: $theme-color;
+        color: $primary;
       }
       & a {
-        color: #7b40c0;
+        color: $primary;
         &:hover {
-          color: $theme-color;
+          color: $secondary;
         }
       }
     }
@@ -151,3 +148,11 @@
   }
 }
 
+a {
+  font-family: $font_2;
+  color: $font_color1;
+  font-size: 18px;
+  &:hover {
+    color: $primary;
+  }
+}
