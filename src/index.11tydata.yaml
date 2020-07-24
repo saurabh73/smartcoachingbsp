@@ -5,16 +5,15 @@ intro:
     bright academic career for our students. We specializes in providing well
     qualified and experienced faculties.\
 
-    Our programs include classes for all subjects for students from **6th to
-    12th for both CBSE & CG board** studying in **English or Hindi Medium.**
+    Our programs include classes for all subjects for students from **6th to 12th for both CBSE & CG board** studying in **English or Hindi Medium.**
   title: Smart Coaching Classes
   notices:
-    - '*New batches are starting from 1st May*'
+    - "*New batches are starting from 1st Augest 2020*"
     - Faculty recruitment process is ongoing now (Freshers can also apply).
 forms:
-  - form_id: '158429846942866268'
+  - form_id: "158429846942866268"
     button_title: Book Demo
-  - form_id: '158429960265543213'
+  - form_id: "158429960265543213"
     button_title: Work with us
 features:
   - description: We specializes in providing well qualified and experienced faculties
@@ -38,51 +37,45 @@ features:
 faculties:
   - photo: /images/uploads/pp.jpeg
     name: Sumit Sinha
-    qualification: 'M.Com, PGDCA, PGDM'
+    qualification: M.Com, PGDCA, PGDM
     experience: 8+ years
     speciality: Commerce & Computers
   - photo: /images/uploads/whatsapp-image-2020-03-08-at-3.27.09-pm.jpeg
     name: Sandhya Dewangan
     experience: 8+ years
     speciality: Chemistry & Biology
-    qualification: 'M.Sc, M.A, B.Ed'
+    qualification: M.Sc, M.A, B.Ed
 testimonials:
-  - content: >-
-      Frequent exams helped me feel constantly challenged to push myself to
+  - content: Frequent exams helped me feel constantly challenged to push myself to
       exceed what is expected.
     name: Abhishek
-    subtext: 'Class 12, Batch 2017'
-  - content: >-
-      Teachers at Smart Coaching Classes are very kind and helpful . It has been
-      a great learning experience here.
-    subtext: 'Class 12, Batch 2017'
+    subtext: Class 12, Batch 2017
+  - content: Teachers at Smart Coaching Classes are very kind and helpful . It has
+      been a great learning experience here.
+    subtext: Class 12, Batch 2017
     name: Prakash
-  - content: >-
-      The teaching, in my opinion, is the best that anyone can hope for .
+  - content: The teaching, in my opinion, is the best that anyone can hope for .
       Teachers provide an environment in which students are able to reach their
       full potential.
     name: Krishna
-    subtext: 'Class 12, Batch 2017'
+    subtext: Class 12, Batch 2017
 gallery_Section:
   enable_gallery: false
 contact:
   phone_numbers:
-    - '9907900999'
-    - '9754495403'
-    - '8602032903'
+    - "9907900999"
+    - "9754495403"
+    - "8602032903"
   email_address: smartcoachingbsp@gmail.com
   address: |-
     Keshav Murra Bhatta Road,\
     Near Transformer,Hemu Nagar\
     Bilaspur, 495004
-  map: >-
-    https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7395.631742470426!2d82.1840905!3d22.0566379!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6852fd98c1b0ab06!2sSmart%20Coaching%20Classes!5e0!3m2!1sen!2suk!4v1584406914692!5m2!1sen!2suk
+  map: https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7395.631742470426!2d82.1840905!3d22.0566379!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6852fd98c1b0ab06!2sSmart%20Coaching%20Classes!5e0!3m2!1sen!2suk!4v1584406914692!5m2!1sen!2suk
 social_links:
   - title: facebook
-    link: 'https://www.facebook.com/smartcoachingbsp/'
+    link: https://www.facebook.com/smartcoachingbsp/
   - title: google
-    link: >-
-      https://www.google.co.in/maps/place/SMART+COACHING+CLASSES/@22.0566379,82.1840905,16z/data=!4m8!1m2!2m1!1ssmart+coaching+centre+bilaspur!3m4!1s0x0:0x6852fd98c1b0ab06!8m2!3d22.0553098!4d82.1887314
+    link: https://www.google.co.in/maps/place/SMART+COACHING+CLASSES/@22.0566379,82.1840905,16z/data=!4m8!1m2!2m1!1ssmart+coaching+centre+bilaspur!3m4!1s0x0:0x6852fd98c1b0ab06!8m2!3d22.0553098!4d82.1887314
   - title: justdial
-    link: >-
-      https://www.justdial.com/Bilaspur-Chhattisgarh/Smart-Coaching-Classes/9999P7752-7752-180913000718-K5K4_BZDET
+    link: https://www.justdial.com/Bilaspur-Chhattisgarh/Smart-Coaching-Classes/9999P7752-7752-180913000718-K5K4_BZDET
