@@ -16,12 +16,12 @@ forms:
   - form_id: "158429960265543213"
     button_title: Work with us
 features:
-  - description: We specializes in providing well qualified and experienced faculties
+  - description: We specialize in providing well qualified and experienced faculties
     title: Experienced Faculty
     icon: /images/uploads/teacher.svg
   - title: Frequent Tests
     icon: /images/uploads/exams.svg
-    description: We frequently conduct tests to monitor student progress and weak areas
+    description: We frequently conduct tests to monitor student's progress and weak areas
   - title: Performance Reports
     icon: /images/uploads/test_reports.svg
     description: We provide performance reports to help your parents track your progress
